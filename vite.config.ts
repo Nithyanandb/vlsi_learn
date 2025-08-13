@@ -8,6 +8,6 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   server: {
-    port: parseInt(import.meta.env.VITE_PORT || '5173')
+    port: parseInt((process.env.VITE_PORT as string) || '5173')
   }
 });
