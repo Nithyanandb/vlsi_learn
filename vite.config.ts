@@ -8,6 +8,13 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   server: {
-    port: parseInt((process.env.VITE_PORT as string) || '5173')
+    host: '0.0.0.0', // Critical for Render
+    port: Number(process.env.PORT) || 5173,
+    strictPort: true, // Crash if port is unavailable
+  },
+  preview: {
+    host: '0.0.0.0', // Also bind preview to 0.0.0.0
+    port: Number(process.env.PORT) || 5173,
+    strictPort: true,
   }
 });
