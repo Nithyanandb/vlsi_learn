@@ -68,21 +68,7 @@ const EDAToolsGuide: React.FC = () => {
       description="Comprehensive guide to Electronic Design Automation (EDA) tools used in the semiconductor industry for chip design and verification."
     >
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 py-20 lg:py-32 overflow-hidden">
-        <div className="container-tesla relative">
-          <div className="text-center animate-fade-in-up">
-            <div className="flex justify-center mb-6">
-              <div className="w-16 h-16 bg-apple-gray-900 rounded-2xl flex items-center justify-center">
-                <Cpu className="w-8 h-8 text-white" />
-              </div>
-            </div>
-            <h1 className="apple-display mb-6">EDA Tools <span className="gradient-text">Guide</span></h1>
-            <p className="apple-subtitle text-apple-gray-600 max-w-3xl mx-auto">
-              The complete reference for Electronic Design Automation software used in semiconductor design.
-            </p>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Tool Categories */}
       <section className="section-apple bg-white">

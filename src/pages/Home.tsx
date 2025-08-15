@@ -323,201 +323,103 @@ const Home: React.FC = () => {
       title="VLSI Learn - Master Semiconductor Design"
       description="The most comprehensive VLSI learning platform with expert-curated content, practical tools, and industry connections."
     >
-      {/* Hero Section - Apple-style minimal */}
-      {/* Hero Section - DeepMind-inspired */}
-      <section className="relative min-h-screen bg-gradient-to-br from-slate-1000 via-blue-1000 to-indigo-900 overflow-hidden flex items-center">
-        {/* Animated Background Grid */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `
-              linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '50px 50px',
-            animation: 'grid-move 20s linear infinite'
-          }}></div>
+{/* Hero Section with White Background */}
+<section className="relative min-h-screen bg-white overflow-hidden flex items-center">
+
+  {/* Background Grid - Lighter version */}
+  <div className="absolute inset-0 opacity-10">
+    <div className="absolute inset-0" style={{
+      backgroundImage: `
+        linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px)
+      `,
+      backgroundSize: '50px 50px',
+      animation: 'grid-move 20s linear infinite'
+    }}></div>
+  </div>
+
+
+
+  {/* Floating Geometric Shapes - Darker */}
+  <div className="absolute inset-0">
+    <div className="absolute top-1/4 right-1/4 w-32 h-32 border border-blue-600/20 rounded-full animate-spin-slow"></div>
+    <div className="absolute bottom-1/3 left-1/5 w-24 h-24 border border-violet-600/20 rotate-45 animate-pulse"></div>
+    <div className="absolute top-1/2 right-1/6 w-16 h-16 bg-gradient-to-r from-blue-600/15 to-violet-600/15 rounded-lg animate-float"></div>
+  </div>
+
+  {/* Hero Content - Dark text for contrast */}
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="grid lg:grid-cols-2 gap-16 items-center min-h-screen py-20">
+
+      {/* Left Side */}
+      <div className="space-y-8 text-center lg:text-left">
+        {/* Research Badge - Darker */}
+        <div className="inline-flex items-center px-4 py-2 bg-blue-600/10 border border-blue-600/20 rounded-full text-blue-700 text-sm font-medium">
+          <div className="w-2 h-2 bg-blue-600 rounded-full mr-3 animate-pulse"></div>
+          Advanced Semiconductor Research Platform
         </div>
 
-        {/* Floating Neural Network Visualization */}
-        <div className="absolute inset-0 overflow-hidden">
-          {/* Neural nodes */}
-          {[...Array(12)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-blue-400 rounded-full opacity-60"
-              style={{
-                left: `${15 + (i % 4) * 20}%`,
-                top: `${20 + Math.floor(i / 4) * 25}%`,
-                animation: `pulse 3s ease-in-out infinite ${i * 0.3}s`
-              }}
-            >
-              <div className="absolute inset-0 bg-blue-400 rounded-full animate-ping"></div>
-            </div>
-          ))}
+        {/* Main Headline - Dark text */}
+        <h1 className="text-5xl lg:text-7xl font-light text-gray-900 leading-tight">
+          Advancing
+          <span className="block font-normal bg-gradient-to-r from-blue-600 via-violet-600 to-cyan-600 bg-clip-text text-transparent">
+            Semiconductor
+          </span>
+        </h1>
 
-          {/* Connection lines */}
-          <svg className="absolute inset-0 w-full h-full opacity-30">
+        <p className="text-xl lg:text-2xl text-gray-600 font-light leading-relaxed max-w-2xl">
+          Pioneering the future of semiconductor design through cutting-edge research,
+          advanced methodologies, and intelligent design automation.
+        </p>
+      </div>
+
+      {/* Right Side - Circuit Visual with more contrast */}
+      <div className="relative">
+        <div className="relative h-96 overflow-hidden rounded-2xl">
+          <svg className="absolute inset-0 w-full h-full">
             <defs>
-              <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0" />
-                <stop offset="50%" stopColor="#3b82f6" stopOpacity="0.6" />
-                <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+              <linearGradient id="circuitGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#1d4ed8" stopOpacity="0.8" />
+                <stop offset="50%" stopColor="#6d28d9" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#0e7490" stopOpacity="0.8" />
               </linearGradient>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+                <feMerge>
+                  <feMergeNode in="coloredBlur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
             </defs>
-            {[...Array(8)].map((_, i) => (
-              <line
-                key={i}
-                x1={`${15 + (i % 4) * 20}%`}
-                y1={`${25 + Math.floor(i / 4) * 25}%`}
-                x2={`${35 + (i % 3) * 20}%`}
-                y2={`${45 + Math.floor(i / 3) * 15}%`}
-                stroke="url(#lineGradient)"
-                strokeWidth="1"
-                className="animate-pulse"
-                style={{ animationDelay: `${i * 0.5}s` }}
-              />
-            ))}
+            <path d="M50 50 L150 50 L150 150 L250 150 L250 250 L350 250" stroke="url(#circuitGradient)" strokeWidth="3" fill="none" filter="url(#glow)" className="animate-pulse" />
+            <path d="M100 100 L200 100 L200 200 L300 200" stroke="url(#circuitGradient)" strokeWidth="2" fill="none" filter="url(#glow)" className="animate-pulse" style={{ animationDelay: '1s' }} />
+            <rect x="140" y="40" width="20" height="20" fill="#1d4ed8" rx="4" className="animate-pulse" />
+            <rect x="240" y="140" width="20" height="20" fill="#6d28d9" rx="4" className="animate-pulse" style={{ animationDelay: '0.5s' }} />
+            <rect x="190" y="90" width="20" height="20" fill="#0e7490" rx="4" className="animate-pulse" style={{ animationDelay: '1.5s' }} />
           </svg>
         </div>
+      </div>
+    </div>
+  </div>
 
-        {/* Floating Geometric Shapes */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 right-1/4 w-32 h-32 border border-blue-400/30 rounded-full animate-spin-slow"></div>
-          <div className="absolute bottom-1/3 left-1/5 w-24 h-24 border border-purple-400/30 rotate-45 animate-pulse"></div>
-          <div className="absolute top-1/2 right-1/6 w-16 h-16 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg animate-float"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center min-h-screen py-20">
-
-            {/* Left Content */}
-            <div className="space-y-8">
-              {/* Research Badge */}
-              <div className="inline-flex items-center px-4 py-2 bg-blue-500/10 border border-blue-400/20 rounded-full text-blue-300 text-sm font-medium backdrop-blur-sm">
-                <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 animate-pulse"></div>
-                Advanced Semiconductor Research Platform
-              </div>
-
-              {/* Main Headline */}
-              <div className="space-y-6">
-                <h1 className="text-5xl lg:text-7xl font-light text-white leading-tight">
-                  Advancing
-                  <span className="block font-normal bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                    Semiconductor
-                  </span>
-                </h1>
-                <p className="text-xl lg:text-2xl text-slate-300 font-light leading-relaxed max-w-2xl">
-                  Pioneering the future of semiconductor design through cutting-edge research,
-                  advanced methodologies, and intelligent design automation.
-                </p>
-              </div>
-
-              {/* Research Highlights */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
-                  <div className="text-3xl font-light text-blue-400 mb-2">500+</div>
-                  <div className="text-sm text-slate-300 font-medium">Research Papers</div>
-                  <div className="text-xs text-slate-400 mt-1">Published methodologies</div>
-                </div>
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
-                  <div className="text-3xl font-light text-purple-400 mb-2">25K+</div>
-                  <div className="text-sm text-slate-300 font-medium">Researchers</div>
-                  <div className="text-xs text-slate-400 mt-1">Global community</div>
-                </div>
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
-                  <div className="text-3xl font-light text-cyan-400 mb-2">98%</div>
-                  <div className="text-sm text-slate-300 font-medium">Accuracy</div>
-                  <div className="text-xs text-slate-400 mt-1">Design optimization</div>
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-
-              </div>
-            </div>
-
-            {/* Right Visual */}
-            <div className="relative">
-              {/* Main Visualization Container */}
-              <div className="relative ">
-
-                {/* Circuit Visualization */}
-                <div className="relative h-96 overflow-hidden rounded-2xl">
-                  {/* Animated Circuit Paths */}
-                  <svg className="absolute inset-0 w-full h-full">
-                    <defs>
-                      <linearGradient id="circuitGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
-                        <stop offset="50%" stopColor="#8b5cf6" stopOpacity="0.6" />
-                        <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.8" />
-                      </linearGradient>
-                      <filter id="glow">
-                        <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-                        <feMerge>
-                          <feMergeNode in="coloredBlur" />
-                          <feMergeNode in="SourceGraphic" />
-                        </feMerge>
-                      </filter>
-                    </defs>
-
-                    {/* Circuit traces */}
-                    <path
-                      d="M50 50 L150 50 L150 150 L250 150 L250 250 L350 250"
-                      stroke="url(#circuitGradient)"
-                      strokeWidth="3"
-                      fill="none"
-                      filter="url(#glow)"
-                      className="animate-pulse"
-                    />
-                    <path
-                      d="M100 100 L200 100 L200 200 L300 200"
-                      stroke="url(#circuitGradient)"
-                      strokeWidth="2"
-                      fill="none"
-                      filter="url(#glow)"
-                      className="animate-pulse"
-                      style={{ animationDelay: '1s' }}
-                    />
-
-                    {/* Logic gates */}
-                    <rect x="140" y="40" width="20" height="20" fill="#3b82f6" rx="4" className="animate-pulse" />
-                    <rect x="240" y="140" width="20" height="20" fill="#8b5cf6" rx="4" className="animate-pulse" style={{ animationDelay: '0.5s' }} />
-                    <rect x="190" y="90" width="20" height="20" fill="#06b6d4" rx="4" className="animate-pulse" style={{ animationDelay: '1.5s' }} />
-                  </svg>
-
-
-                </div>
-
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        {/* Custom Animations */}
-        <style>{`
-          @keyframes grid-move {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-          }
-          @keyframes spin-slow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-          }
-          @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-          }
-          .animate-spin-slow {
-            animation: spin-slow 20s linear infinite;
-          }
-          .animate-float {
-            animation: float 6s ease-in-out infinite;
-          }
-        `}</style>
-      </section>
+  {/* Custom Animations */}
+  <style>{`
+    @keyframes grid-move {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(50px, 50px); }
+    }
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+    .animate-spin-slow { animation: spin-slow 20s linear infinite; }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+  `}</style>
+</section>
 
       {/* Learning Paths - Information Dense */}
       <section className="bg-gray-50 py-20">

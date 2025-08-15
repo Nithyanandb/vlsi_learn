@@ -1,38 +1,91 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="google-adsense-account" content="ca-pub-8124417901733081">
-  <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='10' y='10' width='44' height='44' rx='6' ry='6' fill='%23000'/%3E%3Crect x='18' y='18' width='28' height='28' rx='3' ry='3' fill='%23fff'/%3E%3Crect x='24' y='24' width='16' height='16' rx='2' ry='2' fill='%23000'/%3E%3C/g%3E%3C/svg%3E" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VLSI Learn</title>
-</head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <meta name="description" content="Master VLSI design with comprehensive tutorials, tools, and resources for chip design professionals and students">
+  <meta name="keywords" content="VLSI, chip design, semiconductor, EDA tools, digital electronics, ASIC, FPGA">
+  
+  <!-- Favicon Setup -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2563eb">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="theme-color" content="#2563eb">
 
+  <title>VLSI Learn - Master Chip Design & Digital Electronics</title>
+
+  <!-- Preload critical resources -->
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+  <link rel="preconnect" href="https://www.googletagservices.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "VLSI Learn",
+      "url": "https://vlsi-learn.onrender.com",
+      "logo": "https://vlsi-learn.onrender.com/icon.svg",
+      "description": "Comprehensive VLSI design education platform",
+      "sameAs": [
+        "https://github.com/yourusername",
+        "https://linkedin.com/company/yourcompany"
+      ]
+    }
+  </script>
+  
+</head>
 <body>
   <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
-
-  <!-- Load AdSense only after content is ready -->
+  
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8124417901733081"
+    crossorigin="anonymous"></script>
+  
+  <!-- Sidebar Banner Ad -->
   <script>
-    // Wait for React content to be fully loaded before initializing AdSense
-    window.addEventListener('contentReady', function () {
-      // Load AdSense script
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8124417901733081';
-      script.crossOrigin = 'anonymous';
-      document.head.appendChild(script);
-
-      // Initialize auto ads after script loads
-      script.onload = function () {
-        if (window.adsbygoogle) {
-          window.adsbygoogle.push({});
-        }
-      };
+    window.addEventListener('load', function() {
+      // Load ads after main content
+      setTimeout(function(){
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      }, 2000);
     });
   </script>
-</body>
 
+  <!-- React App Entry Point -->
+  <script type="module" src="/src/main.tsx"></script>
+  
+  <!-- Fallback for older browsers -->
+  <script nomodule>
+    document.getElementById('root').innerHTML = 
+      '<div style="padding:2rem;text-align:center;font-family:sans-serif;">' +
+      '<div style="display:inline-flex;align-items:center;margin-bottom:1rem;">' +
+      '<div style="width:32px;height:32px;background:#2563eb;border-radius:6px;margin-right:8px;"></div>' +
+      '<h1 style="font-size:1.5rem;font-weight:600;color:#111827;">VLSI Learn</h1>' +
+      '</div>' +
+      '<p style="color:#4b5563;margin-bottom:1.5rem;">Please use a modern browser to view this application</p>' +
+      '<div style="display:flex;gap:1rem;justify-content:center;">' +
+      '<a href="https://www.google.com/chrome/" style="padding:0.5rem 1rem;background:#f3f4f6;border-radius:0.375rem;color:#111827;text-decoration:none;">Download Chrome</a>' +
+      '<a href="https://www.mozilla.org/firefox/" style="padding:0.5rem 1rem;background:#f3f4f6;border-radius:0.375rem;color:#111827;text-decoration:none;">Download Firefox</a>' +
+      '</div>' +
+      '</div>';
+  </script>
+</body>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8124417901733081"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-cz-1p+4y-mv+na"
+     data-ad-client="ca-pub-8124417901733081"
+     data-ad-slot="7840537317"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 </html>
