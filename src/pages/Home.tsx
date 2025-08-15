@@ -166,42 +166,57 @@ const Home: React.FC = () => {
 
   const featuredContent = [
     {
-      category: 'Tutorial',
-      title: 'CMOS Logic Design Deep Dive',
-      description: 'Comprehensive guide to CMOS logic families, power consumption, and optimization techniques',
-      readTime: '12 min read',
-      difficulty: 'Intermediate',
-      image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=compress&cs=tinysrgb&w=800',
-      href: '/tutorials/vlsi/intro',
-      tags: ['CMOS', 'Logic Design', 'Power'],
-      author: 'Dr. Sarah Chen',
-      publishedAt: '2 days ago'
+      title: "AI-Assisted Chip Verification",
+      description: "Leveraging AI to automate functional verification for next-gen semiconductor architectures.",
+      category: "AI in VLSI",
+      image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80",
+      href: "/research/ai-chip-verification",
+      readTime: "8 min read",
+      difficulty: "Advanced",
+      tags: ["AI", "Verification", "EDA Tools"],
+      author: "Dr. R. Kumar",
+      publishedAt: "Aug 2025",
+    },
+
+    {
+      title: "Energy-Efficient SoC Architectures",
+      description: "Design strategies for reducing power consumption without sacrificing performance.",
+      category: "Low Power Design",
+      image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
+      href: "/research/energy-efficient-soc",
+      readTime: "7 min read",
+      difficulty: "Intermediate",
+      tags: ["Low Power", "SoC", "RTL Design"],
+      author: "Ms. S. Mehta",
+      publishedAt: "Jun 2025",
+    },
+
+    {
+      title: "Quantum Computing Hardware",
+      description: "Exploring qubit stability and error correction techniques in hardware implementations.",
+      category: "Quantum Hardware",
+      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80",
+      href: "/research/quantum-hardware",
+      readTime: "10 min read",
+      difficulty: "Expert",
+      tags: ["Quantum", "Cryogenics", "Hardware"],
+      author: "Dr. L. Menon",
+      publishedAt: "Apr 2025",
     },
     {
-      category: 'Case Study',
-      title: 'Modern CPU Design Challenges',
-      description: 'Analyzing the latest trends in processor architecture and manufacturing challenges',
-      readTime: '8 min read',
-      difficulty: 'Advanced',
-      image: 'https://images.unsplash.com/photo-1555617868-b88c3cf8f275?auto=compress&cs=tinysrgb&w=800',
-      href: '/tutorials/vlsi/rtl-to-gdsii',
-      tags: ['CPU Design', 'Architecture', 'Manufacturing'],
-      author: 'Prof. Michael Zhang',
-      publishedAt: '1 week ago'
-    },
-    {
-      category: 'Industry Insight',
-      title: '7nm to 3nm: Process Evolution',
-      description: 'Understanding the technical and economic implications of advanced process nodes',
-      readTime: '15 min read',
-      difficulty: 'Expert',
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=compress&cs=tinysrgb&w=800',
-      href: '/tutorials/vlsi/chip-edge',
-      tags: ['Process Technology', 'Manufacturing', 'Economics'],
-      author: 'Dr. Lisa Park',
-      publishedAt: '3 days ago'
+      title: "Neuromorphic Chip Design",
+      description: "Brain-inspired architectures for AI workloads with ultra-low power requirements.",
+      category: "Neuromorphic Computing",
+      image: "https://images.unsplash.com/photo-1534723328310-e82dad3ee43f?auto=format&fit=crop&w=800&q=80",
+      href: "/research/neuromorphic-chip",
+      readTime: "9 min read",
+      difficulty: "Advanced",
+      tags: ["Neuromorphic", "AI", "ASIC"],
+      author: "Prof. M. Chatterjee",
+      publishedAt: "Mar 2025",
     }
   ];
+
 
   const practicalTools = [
     {

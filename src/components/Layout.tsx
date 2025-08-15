@@ -107,13 +107,12 @@ const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
   };
 
   return (
-    <div className="min-h-screen  bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+    <div className="min-h-screen  bg-white text-black">
       <DynamicBackground />
 
       {/* Apple-style Header */}
       <header
-        className={`fixed w-full top-0  z-50 transition-all backdrop-blur-2xl
-    ${isScrolled ? 'bg-white shadow-lg h-10' : 'shadow-sm h-10'}
+        className={`fixed w-full top-0  z-50 text-black transition-all backdrop-blur-2xl
   
   `}
       >
@@ -125,7 +124,7 @@ const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
             <div className="flex-shrink-0">
               <Link to="/" className="flex items-center space-x-3 group">
                 <div className="w-[120px] h-9 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
-                  <span className={`${isScrolled ? 'text-black' : 'text-white'} font-bold text-sm`}>
+                  <span className={`${isScrolled ? 'text-black' : 'text-blacke'} font-bold text-sm`}>
                     VLSI LEARN
                   </span>
                 </div>
@@ -141,9 +140,9 @@ const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
                       <button
                         onClick={() => handleDropdown(item.name)}
                         onMouseEnter={() => setActiveDropdown(item.name)}
-                        className={`flex  items-center space-x-1 px-3 py-2 font-medium transition-colors duration-200 rounded-lg hover:bg-gray-500
-                    ${isScrolled ? 'text-black hover:text-gray-900' : 'text-white hover:text-gray-200'}
-                  `}
+                        className={`flex items-center space-x-1 px-3 py-2 font-medium transition-colors duration-200
+    ${isScrolled ? 'text-black hover:text-gray-500' : 'text-black hover:text-gray-500'}
+  `}
                       >
                         <span>{item.name}</span>
                         <ChevronDown
@@ -151,6 +150,7 @@ const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
                             }`}
                         />
                       </button>
+
 
                       {/* Dropdown */}
                       <div
@@ -166,7 +166,7 @@ const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
                           <Link
                             key={child.name}
                             to={child.href}
-                            className="block px-4 py-3 text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition-colors duration-200"
+                            className="block px-4 py-3 text-gray-700 hover:text-gray-900  transition-colors duration-200"
                             onClick={() => setActiveDropdown(null)}
                           >
                             <div className="font-medium">{child.name}</div>
@@ -180,15 +180,13 @@ const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
                   ) : (
                     <Link
                       to={item.href || '/'}
-                      className={`px-3 py-2 font-small transition-colors duration-200 rounded-lg
-    ${isScrolled
-                          ? 'text-black hover:text-gray-900 hover:bg-gray-200'  // Light background
-                          : 'text-white hover:text-gray-100 hover:bg-gray-700' // Dark background
-                        }
+                      className={`px-3 py-2 font-medium transition-colors duration-200
+    ${isScrolled ? 'text-black hover:text-gray-500' : 'text-black hover:text-gray-500'}
   `}
                     >
                       {item.name}
                     </Link>
+
                   )}
                 </div>
               ))}
@@ -222,7 +220,7 @@ const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
                     <div>
                       <button
                         onClick={() => handleDropdown(item.name)}
-                        className="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200"
+                        className="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:text-gray-900  rounded-lg transition-all duration-200"
                       >
                         <div className="flex items-center space-x-3">
                           <item.icon className="w-5 h-5" />
@@ -241,7 +239,7 @@ const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
                           <Link
                             key={child.name}
                             to={child.href}
-                            className="block px-4 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors duration-200"
+                            className="block px-4 py-2 text-gray-600 hover:text-gray-900  rounded-lg transition-colors duration-200"
                             onClick={() => setIsMenuOpen(false)}
                           >
                             {child.name}
@@ -252,7 +250,7 @@ const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
                   ) : (
                     <Link
                       to={item.href || '/'}
-                      className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200"
+                      className="flex items-center space-x-3 px-4 py-3 text-gray-700   rounded-lg transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <item.icon className="w-5 h-5" />
