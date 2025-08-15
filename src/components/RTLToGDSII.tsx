@@ -24,7 +24,7 @@ const RTLToGDSII: React.FC = () => {
   return (
     <Layout title="RTL to GDSII Flow - Complete VLSI Design Process" description="Learn the complete semiconductor design flow from RTL coding to final GDSII tapeout with industry-standard EDA tools.">
       {/* Hero Section */}
-      <section className="relative bg-apple-gray-50 py-20 lg:py-32 overflow-hidden">
+      <section className="relative bg-white py-20 lg:py-32 overflow-hidden">
         <div className="container-tesla">
           <div className="text-center animate-fade-in-up">
             <div className="flex justify-center mb-6">

@@ -68,7 +68,7 @@ const EDAToolsGuide: React.FC = () => {
       description="Comprehensive guide to Electronic Design Automation (EDA) tools used in the semiconductor industry for chip design and verification."
     >
       {/* Hero Section */}
-      <section className="relative bg-apple-gray-50 py-20 lg:py-32 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 py-20 lg:py-32 overflow-hidden">
         <div className="container-tesla relative">
           <div className="text-center animate-fade-in-up">
             <div className="flex justify-center mb-6">

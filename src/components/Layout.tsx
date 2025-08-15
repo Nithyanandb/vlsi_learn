@@ -9,6 +9,7 @@ interface LayoutProps {
   description?: string;
 }
 
+
 interface NavItem {
   name: string;
   href?: string;
@@ -19,6 +20,8 @@ interface NavItem {
     description?: string;
   }>;
 }
+
+
 
 const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -57,6 +60,23 @@ const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
       meta.content = description;
     }
   }, [title, description]);
+  const [isLightBg, setIsLightBg] = useState(false);
+
+  useEffect(() => {
+    const checkBg = () => {
+      if (!isScrolled) {
+        setIsLightBg(false);
+        return;
+      }
+      const bgColor = window.getComputedStyle(document.querySelector('header')!).backgroundColor;
+      const rgb = bgColor.match(/\d+/g)?.map(Number) || [0, 0, 0];
+      const brightness = (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000;
+      setIsLightBg(brightness > 180);
+    };
+    checkBg();
+    window.addEventListener('scroll', checkBg);
+    return () => window.removeEventListener('scroll', checkBg);
+  }, [isScrolled]);
 
   const navigation: NavItem[] = [
     { name: 'Home', href: '/', icon: Home },
@@ -87,48 +107,58 @@ const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+    <div className="min-h-screen  bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
       <DynamicBackground />
 
       {/* Apple-style Header */}
-      <header className={`fixed w-full top-0 z-50 transition-all duration-500 ease-out ${isScrolled
-        ? 'backdrop-blur-xl shadow-sm'
-        : 'bg-transparent'
-        } ${isHeaderVisible ? 'translate-y-0' : '-translate-y-0'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+      <header
+        className={`fixed w-full top-0  z-50 transition-all backdrop-blur-2xl
+    ${isScrolled ? 'bg-white shadow-lg h-10' : 'shadow-sm h-10'}
+  
+  `}
+      >
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+          <div className="flex justify-between items-center h-10">
 
             {/* Logo */}
             <div className="flex-shrink-0">
               <Link to="/" className="flex items-center space-x-3 group">
-                <div className="w-[95px] h-9 backdrop-blur-xl shadow-smrounded-[8px] flex items-center justify-center group-hover:scale-110 transition-all duration-300">
-                  <span className="text-white font-bold text-sm">VLSI LEARN</span>
+                <div className="w-[120px] h-9 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+                  <span className={`${isScrolled ? 'text-black' : 'text-white'} font-bold text-sm`}>
+                    VLSI LEARN
+                  </span>
                 </div>
               </Link>
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex  items-center space-x-2">
+            <nav className="hidden lg:flex items-center space-x-2">
               {navigation.map((item) => (
-                <div key={item.name} className="relative">
+                <div key={item.name} className="relative ">
                   {item.children ? (
-                    <div className="group">
+                    <div className="group ">
                       <button
                         onClick={() => handleDropdown(item.name)}
                         onMouseEnter={() => setActiveDropdown(item.name)}
-                        className="flex items-center space-x-1 px-3 py-2 text-white hover:text-gray-900 font-medium transition-colors duration-200 rounded-lg hover:bg-gray-100"
+                        className={`flex  items-center space-x-1 px-3 py-2 font-medium transition-colors duration-200 rounded-lg hover:bg-gray-500
+                    ${isScrolled ? 'text-black hover:text-gray-900' : 'text-white hover:text-gray-200'}
+                  `}
                       >
                         <span>{item.name}</span>
-                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180' : ''
-                          }`} />
+                        <ChevronDown
+                          className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180' : ''
+                            }`}
+                        />
                       </button>
 
                       {/* Dropdown */}
                       <div
-                        className={`absolute top-full left-0 mt-2 w-72 bg-white rounded-2xl shadow-lg border border-gray-100 py-2 transition-all duration-200 ${activeDropdown === item.name
-                          ? 'opacity-100 visible translate-y-0'
-                          : 'opacity-100 invisible -translate-y-2'
-                          }`}
+                        className={`absolute top-full left-0 mt-2 w-72 bg-white rounded-2xl shadow-lg border border-gray-100 py-2 transition-all duration-200
+                    ${activeDropdown === item.name
+                            ? 'opacity-100 visible translate-y-0'
+                            : 'opacity-0 invisible -translate-y-2'}
+                  `}
                         onMouseEnter={() => setActiveDropdown(item.name)}
                         onMouseLeave={() => setActiveDropdown(null)}
                       >
@@ -150,7 +180,12 @@ const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
                   ) : (
                     <Link
                       to={item.href || '/'}
-                      className="px-3 py-2 text-white hover:text-gray-900 font-small transition-colors duration-200 rounded-lg hover:bg-gray-100"
+                      className={`px-3 py-2 font-small transition-colors duration-200 rounded-lg
+    ${isScrolled
+                          ? 'text-black hover:text-gray-900 hover:bg-gray-200'  // Light background
+                          : 'text-white hover:text-gray-100 hover:bg-gray-700' // Dark background
+                        }
+  `}
                     >
                       {item.name}
                     </Link>
@@ -161,17 +196,12 @@ const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
 
             {/* Right Actions */}
             <div className="flex items-center space-x-3">
-              <button className="p-2 text-white hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all duration-200">
-                <Search className="w-5 h-5" />
-              </button>
-              <button className="hidden sm:block px-4 py-2 text-white hover:text-gray-900 font-medium transition-colors duration-200 rounded-lg hover:bg-gray-100">
-                Sign In
-              </button>
-
               {/* Mobile menu button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="lg:hidden p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all duration-200"
+                className={`lg:hidden p-2 rounded-lg transition-all duration-200
+            ${isScrolled ? 'text-black hover:text-gray-900' : 'text-white hover:text-gray-200'}
+          `}
               >
                 {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
@@ -180,10 +210,10 @@ const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`lg:hidden transition-all duration-300 ease-out ${isMenuOpen
-          ? 'max-h-screen opacity-100 visible'
-          : 'max-h-0 opacity-0 invisible'
-          }`}>
+        <div
+          className={`lg:hidden transition-all duration-300 ease-out ${isMenuOpen ? 'max-h-screen opacity-100 visible' : 'max-h-0 opacity-0 invisible'
+            }`}
+        >
           <div className="bg-white border-t border-gray-200 px-4 pb-6">
             <div className="space-y-1 pt-4">
               {navigation.map((item) => (
@@ -198,11 +228,15 @@ const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
                           <item.icon className="w-5 h-5" />
                           <span className="font-medium">{item.name}</span>
                         </div>
-                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180' : ''
-                          }`} />
+                        <ChevronDown
+                          className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180' : ''
+                            }`}
+                        />
                       </button>
-                      <div className={`ml-8 space-y-1 transition-all duration-200 ${activeDropdown === item.name ? 'max-h-screen' : 'max-h-0 overflow-hidden'
-                        }`}>
+                      <div
+                        className={`ml-8 space-y-1 transition-all duration-200 ${activeDropdown === item.name ? 'max-h-screen' : 'max-h-0 overflow-hidden'
+                          }`}
+                      >
                         {item.children.map((child) => (
                           <Link
                             key={child.name}
@@ -227,22 +261,16 @@ const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
                   )}
                 </div>
               ))}
-              <div className="pt-4 border-t border-gray-200 mt-4">
-                <Link
-                  to="/signin"
-                  className="block w-full text-center bg-black text-white py-3 rounded-full font-medium hover:bg-gray-900 transition-colors duration-200"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Sign In
-                </Link>
-              </div>
+
             </div>
           </div>
         </div>
       </header>
 
+
       {/* Main Content */}
-      <main className="pt-16">
+      <main
+        className={`pt-10`}>
         {children}
       </main>
 
@@ -254,10 +282,10 @@ const Layout: React.FC<LayoutProps> = ({ children, title, description }) => {
             {/* Company Info */}
             <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">V</span>
+                <div className="w-[95px] h-8 rounded-lg flex items-center justify-center">
+                  <span className="text-black font-bold text-sm">VLSI LEARN</span>
                 </div>
-                <span className="text-xl font-semibold text-gray-900">VLSI Learn</span>
+
               </div>
               <p className="text-gray-600 text-sm leading-relaxed max-w-md">
                 The definitive platform for mastering VLSI design and digital electronics.

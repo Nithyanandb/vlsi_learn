@@ -4,7 +4,8 @@ import {
   ArrowRight, BookOpen, Calculator, Users, Award, ChevronRight,
   Cpu, Zap, Target, Play, Clock, Star, TrendingUp, Code,
   Database, Rocket, Globe, Lightbulb, CheckCircle, Brain,
-  Shield, Smartphone, Layers, Activity, Briefcase, GraduationCap
+  Shield, Smartphone, Layers, Activity, Briefcase, GraduationCap,
+  ArrowUpRight
 } from 'lucide-react';
 import Layout from '../components/Layout';
 
@@ -14,6 +15,105 @@ const Home: React.FC = () => {
     { number: '500+', label: 'Expert Tutorials', subtext: 'Updated weekly' },
     { number: '50+', label: 'Design Tools', subtext: 'Professional grade' },
     { number: '98%', label: 'Success Rate', subtext: 'Career advancement' }
+  ];
+  const researchTools = [
+    {
+      title: 'Neural Power Predictor',
+      description: 'AI-powered dynamic and static power consumption modeling',
+      icon: Brain,
+      stats: '15K+ predictions',
+      href: '/tools/neural-power',
+      preview: 'Run AI analysis'
+    },
+    {
+      title: 'Quantum Timing Analyzer',
+      description: 'Advanced setup/hold analysis with quantum-aware methodologies',
+      icon: Zap,
+      stats: '8.2K+ analyses',
+      href: '/tools/quantum-timing',
+      preview: 'Analyze quantum effects'
+    },
+    {
+      title: 'ML Area Optimizer',
+      description: 'Machine learning-driven gate count and area optimization',
+      icon: Target,
+      stats: '12K+ optimizations',
+      href: '/tools/ml-optimizer',
+      preview: 'Optimize with AI'
+    },
+    {
+      title: 'Research Database',
+      description: 'Comprehensive semiconductor research and methodology library',
+      icon: Database,
+      stats: '2.5K+ papers indexed',
+      href: '/research/database',
+      preview: 'Explore research'
+    }
+  ];
+
+  const researchPartners = [
+    {
+      organization: 'Google DeepMind',
+      focus: 'AI-Driven Circuit Design',
+      description: 'Advancing neural architecture search for semiconductor design',
+      logo: '🧠',
+      collaboration: 'Active research'
+    },
+    {
+      organization: 'MIT CSAIL',
+      focus: 'Quantum Computing Integration',
+      description: 'Next-generation quantum-classical hybrid architectures',
+      logo: '🔬',
+      collaboration: '12 joint papers'
+    },
+    {
+      organization: 'Stanford HAI',
+      focus: 'Human-AI Collaboration',
+      description: 'Intelligent design assistance and automation',
+      logo: '⚡',
+      collaboration: 'Ongoing studies'
+    },
+    {
+      organization: 'NVIDIA Research',
+      focus: 'GPU Architecture Innovation',
+      description: 'Advanced parallel processing architectures',
+      logo: '🚀',
+      collaboration: '8 publications'
+    }
+  ];
+
+  const researchMetrics = [
+    { metric: 'Research Impact', value: '8.7', trend: '+12%', color: 'text-blue-600', unit: 'h-index' },
+    { metric: 'Methodology Accuracy', value: '97.3%', trend: '+5%', color: 'text-green-600', unit: '' },
+    { metric: 'Industry Adoption', value: '156', trend: '+34', color: 'text-purple-600', unit: 'companies' },
+    { metric: 'Research Citations', value: '2.4K', trend: '+18%', color: 'text-cyan-600', unit: 'citations' }
+  ];
+
+  const researchFormats = [
+    {
+      format: 'Interactive Labs',
+      description: 'Hands-on research with cutting-edge methodologies',
+      icon: Activity,
+      count: '200+'
+    },
+    {
+      format: 'Research Papers',
+      description: 'Peer-reviewed publications and methodology papers',
+      icon: BookOpen,
+      count: '500+'
+    },
+    {
+      format: 'Case Studies',
+      description: 'Real-world research applications and results',
+      icon: Briefcase,
+      count: '150+'
+    },
+    {
+      format: 'Methodology Guides',
+      description: 'Step-by-step research methodologies and protocols',
+      icon: GraduationCap,
+      count: '300+'
+    }
   ];
 
   const learningPaths = [
@@ -210,7 +310,7 @@ const Home: React.FC = () => {
     >
       {/* Hero Section - Apple-style minimal */}
       {/* Hero Section - DeepMind-inspired */}
-      <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden flex items-center">
+      <section className="relative min-h-screen bg-gradient-to-br from-slate-1000 via-blue-1000 to-indigo-900 overflow-hidden flex items-center">
         {/* Animated Background Grid */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0" style={{
@@ -288,7 +388,7 @@ const Home: React.FC = () => {
                 <h1 className="text-5xl lg:text-7xl font-light text-white leading-tight">
                   Advancing
                   <span className="block font-normal bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                    VLSI Intelligence
+                    Semiconductor
                   </span>
                 </h1>
                 <p className="text-xl lg:text-2xl text-slate-300 font-light leading-relaxed max-w-2xl">
@@ -325,10 +425,10 @@ const Home: React.FC = () => {
             {/* Right Visual */}
             <div className="relative">
               {/* Main Visualization Container */}
-              <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
+              <div className="relative ">
 
                 {/* Circuit Visualization */}
-                <div className="relative h-96 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900">
+                <div className="relative h-96 overflow-hidden rounded-2xl">
                   {/* Animated Circuit Paths */}
                   <svg className="absolute inset-0 w-full h-full">
                     <defs>
@@ -371,45 +471,10 @@ const Home: React.FC = () => {
                     <rect x="190" y="90" width="20" height="20" fill="#06b6d4" rx="4" className="animate-pulse" style={{ animationDelay: '1.5s' }} />
                   </svg>
 
-                  {/* Floating Data Points */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="grid grid-cols-3 gap-8">
-                      {[
-                        { label: 'Power', value: '2.3W', color: 'text-blue-400' },
-                        { label: 'Frequency', value: '3.2GHz', color: 'text-purple-400' },
-                        { label: 'Area', value: '45mm²', color: 'text-cyan-400' },
-                        { label: 'Delay', value: '120ps', color: 'text-green-400' },
-                        { label: 'Efficiency', value: '94%', color: 'text-yellow-400' },
-                        { label: 'Yield', value: '98.7%', color: 'text-pink-400' }
-                      ].map((metric, i) => (
-                        <div key={i} className="text-center">
-                          <div className={`text-lg font-light ${metric.color} animate-pulse`} style={{ animationDelay: `${i * 0.3}s` }}>
-                            {metric.value}
-                          </div>
-                          <div className="text-xs text-slate-400 mt-1">{metric.label}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+
                 </div>
 
-                {/* Research Insights Panel */}
-                <div className="mt-6 grid grid-cols-2 gap-4">
-                  <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-400/20 rounded-xl p-4">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <Brain className="w-4 h-4 text-blue-400" />
-                      <span className="text-sm font-medium text-slate-300">AI Optimization</span>
-                    </div>
-                    <div className="text-xs text-slate-400">Neural network-driven design space exploration</div>
-                  </div>
-                  <div className="bg-gradient-to-r from-purple-500/10 to-cyan-500/10 border border-purple-400/20 rounded-xl p-4">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <Zap className="w-4 h-4 text-purple-400" />
-                      <span className="text-sm font-medium text-slate-300">Quantum Ready</span>
-                    </div>
-                    <div className="text-xs text-slate-400">Next-generation computing architectures</div>
-                  </div>
-                </div>
+
               </div>
 
             </div>
@@ -441,7 +506,7 @@ const Home: React.FC = () => {
 
       {/* Learning Paths - Information Dense */}
       <section className="bg-gray-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-semibold text-gray-900 mb-4">Structured Learning Paths</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -525,73 +590,9 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Featured Content - Magazine Style */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-semibold text-gray-900 mb-4">Featured Content</h2>
-            <p className="text-xl text-gray-600">Latest insights and deep dives from industry experts.</p>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-8">
-            {featuredContent.map((content, index) => (
-              <article key={index} className="group cursor-pointer">
-                <Link to={content.href} className="block">
-                  <div className="relative overflow-hidden rounded-2xl mb-6">
-                    <img
-                      src={content.image}
-                      alt={content.title}
-                      className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-gray-900">
-                        {content.category}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="space-y-4">
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                        {content.title}
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">{content.description}</p>
-                    </div>
-
-                    <div className="flex items-center justify-between text-sm">
-                      <div className="flex items-center space-x-4">
-                        <span className="text-gray-500">{content.readTime}</span>
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${content.difficulty === 'Intermediate' ? 'bg-yellow-100 text-yellow-800' :
-                          content.difficulty === 'Advanced' ? 'bg-orange-100 text-orange-800' :
-                            'bg-red-100 text-red-800'
-                          }`}>
-                          {content.difficulty}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2">
-                      {content.tags.map((tag, tagIndex) => (
-                        <span key={tagIndex} className="px-2 py-1 bg-gray-100 text-gray-600 rounded-lg text-xs">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="flex items-center justify-between pt-2 border-t border-gray-100">
-                      <span className="text-sm font-medium text-gray-900">{content.author}</span>
-                      <span className="text-xs text-gray-500">{content.publishedAt}</span>
-                    </div>
-                  </div>
-                </Link>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Practical Tools - Grid Layout */}
-      <section className="bg-gray-50 py-20">
+      {/* <section className="bg-gray-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-semibold text-gray-900 mb-4">Professional Tools</h2>
@@ -623,91 +624,337 @@ const Home: React.FC = () => {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* Learning Formats */}
-      <section className="bg-white py-16">
+      </section> */}
+      {/* Research Metrics Section */}
+      <section className="bg-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-semibold text-gray-900 mb-4">Multiple Learning Formats</h2>
-            <p className="text-lg text-gray-600">Choose the format that works best for your learning style.</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {learningFormats.map((format, index) => (
-              <div key={index} className="text-center p-6">
-                <div className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <format.icon className="w-8 h-8 text-gray-600" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{format.format}</h3>
-                <p className="text-sm text-gray-600 mb-3">{format.description}</p>
-                <div className="text-2xl font-bold text-blue-600">{format.count}</div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { value: '2.4K', label: 'Citations', sublabel: 'Research impact' },
+              { value: '156', label: 'Companies', sublabel: 'Industry partners' },
+              { value: '97.3%', label: 'Accuracy', sublabel: 'Methodology precision' },
+              { value: '25K+', label: 'Researchers', sublabel: 'Global network' }
+            ].map((metric, i) => (
+              <div key={i} className="space-y-2">
+                <div className="text-3xl font-light text-gray-900">{metric.value}</div>
+                <div className="text-sm font-medium text-gray-700">{metric.label}</div>
+                <div className="text-xs text-gray-500">{metric.sublabel}</div>
               </div>
             ))}
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-12 justify-center">
+            <button className="bg-gray-900 text-white px-8 py-4 rounded-full font-light text-lg hover:bg-gray-800 transition-all duration-300 flex items-center justify-center group">
+              Explore Research
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+            <button className="border border-gray-300 text-gray-900 px-8 py-4 rounded-full font-light text-lg hover:border-gray-400 transition-colors">
+              View Publications
+            </button>
           </div>
         </div>
       </section>
 
-      {/* Industry Spotlight - Compact Cards */}
-      <section className="bg-gray-900 text-white py-20">
+
+      {/* Right Visualization */}
+      <div className="">
+        {/* Main Research Visualization */}
+        <div className=" bg-gradient-to-br from-white to-gray-50  shadow-xl">
+
+          {/* Neural Network Visualization */}
+          <div className="relative h-96 overflow-hidden bg-gradient-to-br from-gray-900 to-blue-900">
+            {/* Animated Research Data Flow */}
+            <svg className="absolute inset-0 w-full h-full">
+              <defs>
+                <linearGradient id="dataFlow" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
+                  <stop offset="50%" stopColor="#8b5cf6" stopOpacity="0.6" />
+                  <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.8" />
+                </linearGradient>
+                <filter id="research-glow">
+                  <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+                  <feMerge>
+                    <feMergeNode in="coloredBlur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+
+              {/* Research pathways */}
+              <path
+                d="M60 60 Q180 100 300 60 T540 100"
+                stroke="url(#dataFlow)"
+                strokeWidth="2"
+                fill="none"
+                filter="url(#research-glow)"
+                className="animate-pulse"
+              />
+              <path
+                d="M80 120 Q200 160 320 120 T520 160"
+                stroke="url(#dataFlow)"
+                strokeWidth="2"
+                fill="none"
+                filter="url(#research-glow)"
+                className="animate-pulse"
+                style={{ animationDelay: '1s' }}
+              />
+
+              {/* Research nodes */}
+              <circle cx="100" cy="80" r="6" fill="#3b82f6" className="animate-pulse" />
+              <circle cx="280" cy="140" r="6" fill="#8b5cf6" className="animate-pulse" style={{ animationDelay: '0.5s' }} />
+              <circle cx="450" cy="100" r="6" fill="#06b6d4" className="animate-pulse" style={{ animationDelay: '1.5s' }} />
+            </svg>
+
+            {/* Research Metrics Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="grid grid-cols-2 gap-8 text-center">
+                {[
+                  { label: 'Neural Accuracy', value: '97.3%', color: 'text-blue-400' },
+                  { label: 'Optimization Rate', value: '156x', color: 'text-purple-400' },
+                  { label: 'Power Efficiency', value: '+45%', color: 'text-cyan-400' },
+                  { label: 'Design Speed', value: '12.3x', color: 'text-green-400' }
+                ].map((metric, i) => (
+                  <div key={i} className="space-y-2">
+                    <div className={`text-2xl font-light ${metric.color} animate-pulse`} style={{ animationDelay: `${i * 0.3}s` }}>
+                      {metric.value}
+                    </div>
+                    <div className="text-xs text-gray-300">{metric.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+        {/* Floating Research Indicators */}
+
+      </div>
+
+
+
+
+
+      {/* Featured Research - Publication Style */}
+      < section className="bg-gray-50 py-32" >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl font-extralight text-gray-900 mb-6">Latest Research</h2>
+            <p className="text-xl text-gray-600 font-light">Breakthrough discoveries and methodological advances in semiconductor design.</p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-12">
+            {featuredContent.map((content, index) => (
+              <article key={index} className="group cursor-pointer">
+                <Link to={content.href} className="block">
+                  <div className="space-y-6">
+                    {/* Research Image */}
+                    <div className="relative overflow-hidden rounded-2xl">
+                      <img
+                        src={content.image}
+                        alt={content.title}
+                        className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <span className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-light text-gray-900">
+                          {content.category}
+                        </span>
+                      </div>
+                      <div className="absolute top-4 right-4">
+                        <ArrowUpRight className="w-5 h-5 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </div>
+                    </div>
+
+                    {/* Research Content */}
+                    <div className="space-y-4">
+                      <div>
+                        <h3 className="text-2xl font-light text-gray-900 mb-3 group-hover:text-blue-600 transition-colors leading-tight">
+                          {content.title}
+                        </h3>
+                        <p className="text-gray-600 font-light leading-relaxed">{content.description}</p>
+                      </div>
+
+                      {/* Research Metadata */}
+                      <div className="flex items-center justify-between text-sm">
+                        <div className="flex items-center space-x-4">
+                          <span className="text-gray-500 font-light">{content.readTime}</span>
+                          <span className="px-2 py-1 rounded-full text-xs font-light bg-red-50 text-red-700 border border-red-200">
+                            {content.difficulty}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Research Tags */}
+                      <div className="flex flex-wrap gap-2">
+                        {content.tags.map((tag, tagIndex) => (
+                          <span key={tagIndex} className="px-3 py-1 bg-white text-gray-600 rounded-full text-xs font-light border border-gray-200">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Author and Publication Info */}
+                      <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+                        <span className="text-sm font-medium text-gray-900">{content.author}</span>
+                        <span className="text-xs text-gray-500 font-light">{content.publishedAt}</span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section >
+
+      {/* Research Tools - Grid Layout */}
+      < section className="bg-white py-32" >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl font-extralight text-gray-900 mb-6">Research Tools</h2>
+            <p className="text-xl text-gray-600 font-light">Advanced computational tools for semiconductor research and development.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {researchTools.map((tool, index) => (
+              <Link key={index} to={tool.href} className="bg-white border border-gray-100 rounded-2xl p-8 hover:border-gray-200 hover:shadow-lg transition-all duration-500 group">
+                <div className="space-y-6">
+                  {/* Tool Icon and Action */}
+                  <div className="flex items-center justify-between">
+                    <div className="w-14 h-14 bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-blue-50 transition-colors duration-300">
+                      <tool.icon className="w-7 h-7 text-gray-600 group-hover:text-blue-600 transition-colors duration-300" />
+                    </div>
+                    <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors duration-300" />
+                  </div>
+
+                  {/* Tool Information */}
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-light text-gray-900 group-hover:text-blue-600 transition-colors">
+                      {tool.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 font-light leading-relaxed">{tool.description}</p>
+
+                    {/* Tool Stats and Preview */}
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-gray-500 font-light">{tool.stats}</span>
+                      <span className="text-blue-600 font-medium">{tool.preview}</span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section >
+
+      {/* Research Formats */}
+      < section className="bg-gray-50 py-24" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-semibold mb-4">Industry Opportunities</h2>
-            <p className="text-xl text-gray-300">Our learners are hired by the world's leading technology companies.</p>
+            <h2 className="text-4xl font-extralight text-gray-900 mb-4">Research Formats</h2>
+            <p className="text-lg text-gray-600 font-light">Multiple approaches to research and knowledge dissemination.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {industrySpotlight.map((company, index) => (
-              <div key={index} className="bg-gray-800 rounded-2xl p-6 hover:bg-gray-700 transition-colors duration-200">
-                <div className="text-center space-y-4">
-                  <div className="text-4xl">{company.logo}</div>
-                  <div>
-                    <h3 className="text-lg font-semibold mb-1">{company.company}</h3>
-                    <p className="text-blue-400 text-sm font-medium mb-2">{company.role}</p>
-                    <p className="text-gray-300 text-sm">{company.description}</p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {researchFormats.map((format, index) => (
+              <div key={index} className="text-center space-y-4">
+                <div className="w-16 h-16 bg-white border border-gray-200 rounded-2xl flex items-center justify-center mx-auto">
+                  <format.icon className="w-8 h-8 text-gray-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-light text-gray-900 mb-2">{format.format}</h3>
+                  <p className="text-sm text-gray-600 font-light mb-4">{format.description}</p>
+                  <div className="text-2xl font-light text-blue-600">{format.count}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section >
+
+      {/* Research Partners - Clean Cards */}
+      < section className="bg-white py-32" >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl font-extralight text-gray-900 mb-6">Research Collaborations</h2>
+            <p className="text-xl text-gray-600 font-light">Partnering with leading institutions to advance semiconductor research.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {researchPartners.map((partner, index) => (
+              <div key={index} className="bg-white border border-gray-100 rounded-2xl p-8 hover:border-gray-200 transition-all duration-300">
+                <div className="text-center space-y-6">
+                  <div className="text-4xl">{partner.logo}</div>
+                  <div className="space-y-3">
+                    <h3 className="text-lg font-light text-gray-900">{partner.organization}</h3>
+                    <p className="text-blue-600 text-sm font-medium">{partner.focus}</p>
+                    <p className="text-gray-600 text-sm font-light">{partner.description}</p>
                   </div>
-                  <div className="text-xs text-gray-400">{company.openings}</div>
+                  <div className="text-xs text-gray-500 font-light">{partner.collaboration}</div>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Quick Stats */}
-          <div className="mt-20 grid md:grid-cols-4 gap-8">
-            {quickStats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className={`text-3xl font-bold mb-2 ${stat.color}`}>{stat.value}</div>
-                <div className="text-sm text-gray-300 mb-1">{stat.metric}</div>
-                <div className="text-xs text-green-400">{stat.trend}</div>
+          {/* Research Impact Metrics */}
+          <div className="mt-24 grid md:grid-cols-4 gap-8">
+            {researchMetrics.map((metric, index) => (
+              <div key={index} className="text-center space-y-2">
+                <div className={`text-4xl font-extralight ${metric.color}`}>
+                  {metric.value}
+                  <span className="text-lg font-light text-gray-500 ml-1">{metric.unit}</span>
+                </div>
+                <div className="text-sm text-gray-600 font-light">{metric.metric}</div>
+                <div className="text-xs text-green-600 font-medium">{metric.trend}</div>
               </div>
             ))}
           </div>
         </div>
-      </section>
+      </section >
 
-      {/* CTA Section - Apple Style */}
-      <section className="bg-black text-white py-20">
+      {/* Final CTA - DeepMind Style */}
+      < section className="bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 text-white py-32" >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="space-y-8">
-            <h2 className="text-5xl lg:text-6xl font-semibold">
-              Ready to Start?
+          <div className="space-y-12">
+            {/* Research Network Visualization */}
+            <div className="relative">
+              <svg className="w-full h-32 opacity-30" viewBox="0 0 600 120">
+                <defs>
+                  <linearGradient id="networkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.6" />
+                    <stop offset="50%" stopColor="#8b5cf6" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.6" />
+                  </linearGradient>
+                </defs>
+                <path d="M0 60 Q150 20 300 60 T600 60" stroke="url(#networkGradient)" strokeWidth="2" fill="none" className="animate-pulse" />
+                <circle cx="100" cy="45" r="3" fill="#3b82f6" className="animate-pulse" />
+                <circle cx="300" cy="60" r="3" fill="#8b5cf6" className="animate-pulse" style={{ animationDelay: '0.5s' }} />
+                <circle cx="500" cy="75" r="3" fill="#06b6d4" className="animate-pulse" style={{ animationDelay: '1s' }} />
+              </svg>
+            </div>
+
+            <h2 className="text-6xl lg:text-7xl font-extralight leading-tight">
+              Join the Research
             </h2>
-            <p className="text-xl lg:text-2xl text-gray-300 font-light">
-              Join the next generation of VLSI designers. Your journey starts here.
+            <p className="text-2xl lg:text-3xl text-blue-200 font-extralight leading-relaxed max-w-3xl mx-auto">
+              Contribute to the future of semiconductor intelligence.
+              Your research journey begins here.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/tutorials/vlsi/intro" className="bg-white text-black px-8 py-4 rounded-full font-medium text-lg hover:bg-gray-100 transition-colors duration-200 flex items-center justify-center">
-                Begin Learning Journey
-                <Rocket className="ml-2 w-5 h-5" />
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Link to="/tutorials/vlsi/intro" className="bg-white text-gray-900 px-10 py-5 rounded-full font-light text-lg hover:bg-gray-100 transition-colors duration-300 flex items-center justify-center group">
+                Start Research Journey
+                <Rocket className="ml-3 w-5 h-5 group-hover:translate-y-[-2px] transition-transform" />
               </Link>
-              <Link to="/contact" className="border border-gray-400 text-white px-8 py-4 rounded-full font-medium text-lg hover:border-white transition-colors duration-200">
-                Talk to Expert
+              <Link to="/contact" className="border border-blue-400 text-blue-300 px-10 py-5 rounded-full font-light text-lg hover:border-blue-300 hover:text-blue-200 transition-colors duration-300">
+                Explore Publications
               </Link>
             </div>
           </div>
         </div>
-      </section>
-    </Layout>
+      </section >
+    </Layout >
   );
 };
 

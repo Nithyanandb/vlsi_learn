@@ -86,7 +86,7 @@ const VLSICalculator: React.FC = () => {
     const w = parseFloat(areaInputs.width);
     const h = parseFloat(areaInputs.height);
     const transistors = parseFloat(areaInputs.transistorCount);
-    
+
     const techMultiplier = {
       '45nm': 1.0,
       '28nm': 0.6,
@@ -145,7 +145,7 @@ const VLSICalculator: React.FC = () => {
             type="number"
             step="0.1"
             value={powerInputs.voltage}
-            onChange={(e) => setPowerInputs({...powerInputs, voltage: e.target.value})}
+            onChange={(e) => setPowerInputs({ ...powerInputs, voltage: e.target.value })}
             className="input-field"
             placeholder="1.8"
           />
@@ -158,7 +158,7 @@ const VLSICalculator: React.FC = () => {
             type="number"
             step="0.000001"
             value={powerInputs.current}
-            onChange={(e) => setPowerInputs({...powerInputs, current: e.target.value})}
+            onChange={(e) => setPowerInputs({ ...powerInputs, current: e.target.value })}
             className="input-field"
             placeholder="0.000001"
           />
@@ -174,7 +174,7 @@ const VLSICalculator: React.FC = () => {
             type="number"
             step="1000000"
             value={powerInputs.frequency}
-            onChange={(e) => setPowerInputs({...powerInputs, frequency: e.target.value})}
+            onChange={(e) => setPowerInputs({ ...powerInputs, frequency: e.target.value })}
             className="input-field"
             placeholder="1000000000"
           />
@@ -187,7 +187,7 @@ const VLSICalculator: React.FC = () => {
             type="number"
             step="0.000000000001"
             value={powerInputs.capacitance}
-            onChange={(e) => setPowerInputs({...powerInputs, capacitance: e.target.value})}
+            onChange={(e) => setPowerInputs({ ...powerInputs, capacitance: e.target.value })}
             className="input-field"
             placeholder="0.000000000001"
           />
@@ -204,7 +204,7 @@ const VLSICalculator: React.FC = () => {
           min="0"
           max="1"
           value={powerInputs.switchingActivity}
-          onChange={(e) => setPowerInputs({...powerInputs, switchingActivity: e.target.value})}
+          onChange={(e) => setPowerInputs({ ...powerInputs, switchingActivity: e.target.value })}
           className="input-field"
           placeholder="0.5"
         />
@@ -248,7 +248,7 @@ const VLSICalculator: React.FC = () => {
             type="number"
             step="1000"
             value={delayInputs.resistance}
-            onChange={(e) => setDelayInputs({...delayInputs, resistance: e.target.value})}
+            onChange={(e) => setDelayInputs({ ...delayInputs, resistance: e.target.value })}
             className="input-field"
             placeholder="10000"
           />
@@ -261,7 +261,7 @@ const VLSICalculator: React.FC = () => {
             type="number"
             step="0.000000000001"
             value={delayInputs.capacitance}
-            onChange={(e) => setDelayInputs({...delayInputs, capacitance: e.target.value})}
+            onChange={(e) => setDelayInputs({ ...delayInputs, capacitance: e.target.value })}
             className="input-field"
             placeholder="0.000000000001"
           />
@@ -277,7 +277,7 @@ const VLSICalculator: React.FC = () => {
             type="number"
             step="0.000000001"
             value={delayInputs.inputTransition}
-            onChange={(e) => setDelayInputs({...delayInputs, inputTransition: e.target.value})}
+            onChange={(e) => setDelayInputs({ ...delayInputs, inputTransition: e.target.value })}
             className="input-field"
             placeholder="0.000000001"
           />
@@ -290,7 +290,7 @@ const VLSICalculator: React.FC = () => {
             type="number"
             step="0.000000000001"
             value={delayInputs.outputLoad}
-            onChange={(e) => setDelayInputs({...delayInputs, outputLoad: e.target.value})}
+            onChange={(e) => setDelayInputs({ ...delayInputs, outputLoad: e.target.value })}
             className="input-field"
             placeholder="0.000000000001"
           />
@@ -335,7 +335,7 @@ const VLSICalculator: React.FC = () => {
             type="number"
             step="0.1"
             value={areaInputs.width}
-            onChange={(e) => setAreaInputs({...areaInputs, width: e.target.value})}
+            onChange={(e) => setAreaInputs({ ...areaInputs, width: e.target.value })}
             className="input-field"
             placeholder="10"
           />
@@ -348,7 +348,7 @@ const VLSICalculator: React.FC = () => {
             type="number"
             step="0.1"
             value={areaInputs.height}
-            onChange={(e) => setAreaInputs({...areaInputs, height: e.target.value})}
+            onChange={(e) => setAreaInputs({ ...areaInputs, height: e.target.value })}
             className="input-field"
             placeholder="10"
           />
@@ -364,7 +364,7 @@ const VLSICalculator: React.FC = () => {
             type="number"
             step="1000000"
             value={areaInputs.transistorCount}
-            onChange={(e) => setAreaInputs({...areaInputs, transistorCount: e.target.value})}
+            onChange={(e) => setAreaInputs({ ...areaInputs, transistorCount: e.target.value })}
             className="input-field"
             placeholder="1000000000"
           />
@@ -375,7 +375,7 @@ const VLSICalculator: React.FC = () => {
           </label>
           <select
             value={areaInputs.technology}
-            onChange={(e) => setAreaInputs({...areaInputs, technology: e.target.value})}
+            onChange={(e) => setAreaInputs({ ...areaInputs, technology: e.target.value })}
             className="input-field"
           >
             <option value="45nm">45nm</option>
@@ -416,44 +416,25 @@ const VLSICalculator: React.FC = () => {
 
   return (
     <Layout
-      title="VLSI Calculator - Power, Delay & Area Analysis"
-      description="Professional VLSI design calculators for power consumption, timing delays, and chip area calculations."
+
     >
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 to-purple-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center animate-fade-in-up">
-            <div className="flex justify-center mb-6">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center">
-                <Calculator className="w-8 h-8 text-white" />
-              </div>
-            </div>
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-              VLSI <span className="gradient-text">Calculator Suite</span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Professional-grade calculators for VLSI design analysis. Compute power consumption, 
-              timing delays, and chip area with precision.
-            </p>
-          </div>
-        </div>
-      </section>
+
 
       {/* Calculator Tabs */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="card p-8">
+          <div className="p-2">
             {/* Tab Navigation */}
             <div className="flex flex-wrap gap-2 mb-8 p-1 bg-gray-100 rounded-xl">
               {calculators.map((calc) => (
                 <button
                   key={calc.id}
                   onClick={() => setActiveTab(calc.id)}
-                  className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-200 ${
-                    activeTab === calc.id
-                      ? 'bg-white shadow-sm text-blue-600'
-                      : 'text-gray-600 hover:text-gray-900'
-                  }`}
+                  className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-200 ${activeTab === calc.id
+                    ? 'bg-white shadow-sm text-blue-600'
+                    : 'text-gray-600 hover:text-gray-900'
+                    }`}
                 >
                   <calc.icon className="w-4 h-4" />
                   <span className="hidden sm:inline">{calc.name}</span>
