@@ -1,25 +1,38 @@
 <!doctype html>
 <html lang="en">
-  <head >
-    <meta charset="UTF-8" />
-    <meta name="google-adsense-account" content="ca-pub-8124417901733081">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='10' y='10' width='44' height='44' rx='6' ry='6' fill='%23000'/%3E%3Crect x='18' y='18' width='28' height='28' rx='3' ry='3' fill='%23fff'/%3E%3Crect x='24' y='24' width='16' height='16' rx='2' ry='2' fill='%23000'/%3E%3C/g%3E%3C/svg%3E" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VLSI Learn</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script async custom-element="amp-auto-ads"
-        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-</script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8124417901733081"
-     crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <div id="root" ></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-  <amp-auto-ads type="adsense"
-        data-ad-client="ca-pub-8124417901733081">
-</amp-auto-ads>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="google-adsense-account" content="ca-pub-8124417901733081">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='10' y='10' width='44' height='44' rx='6' ry='6' fill='%23000'/%3E%3Crect x='18' y='18' width='28' height='28' rx='3' ry='3' fill='%23fff'/%3E%3Crect x='24' y='24' width='16' height='16' rx='2' ry='2' fill='%23000'/%3E%3C/g%3E%3C/svg%3E" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VLSI Learn</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+
+  <!-- Load AdSense only after content is ready -->
+  <script>
+    // Wait for React content to be fully loaded before initializing AdSense
+    window.addEventListener('contentReady', function () {
+      // Load AdSense script
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8124417901733081';
+      script.crossOrigin = 'anonymous';
+      document.head.appendChild(script);
+
+      // Initialize auto ads after script loads
+      script.onload = function () {
+        if (window.adsbygoogle) {
+          window.adsbygoogle.push({});
+        }
+      };
+    });
+  </script>
+</body>
+
 </html>

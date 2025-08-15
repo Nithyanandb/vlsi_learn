@@ -68,19 +68,16 @@ const EDAToolsGuide: React.FC = () => {
       description="Comprehensive guide to Electronic Design Automation (EDA) tools used in the semiconductor industry for chip design and verification."
     >
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 to-purple-50 py-20 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-apple-gray-50 py-20 lg:py-32 overflow-hidden">
+        <div className="container-tesla relative">
           <div className="text-center animate-fade-in-up">
             <div className="flex justify-center mb-6">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center">
+              <div className="w-16 h-16 bg-apple-gray-900 rounded-2xl flex items-center justify-center">
                 <Cpu className="w-8 h-8 text-white" />
               </div>
             </div>
-            <h1 className="text-5xl lg:text-7xl font-bold mb-6">
-              EDA Tools <span className="gradient-text">Guide</span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h1 className="apple-display mb-6">EDA Tools <span className="gradient-text">Guide</span></h1>
+            <p className="apple-subtitle text-apple-gray-600 max-w-3xl mx-auto">
               The complete reference for Electronic Design Automation software used in semiconductor design.
             </p>
           </div>
@@ -88,37 +85,33 @@ const EDAToolsGuide: React.FC = () => {
       </section>
 
       {/* Tool Categories */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-apple bg-white">
+        <div className="container-tesla">
           <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="text-4xl font-bold mb-6">EDA Tool Categories</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="apple-headline text-apple-gray-900 mb-4">EDA Tool Categories</h2>
+            <p className="apple-subtitle text-apple-gray-600 max-w-3xl mx-auto">
               Modern chip design requires specialized tools for each stage of development
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {toolCategories.map((category, index) => (
-              <div
-                key={index}
-                className="card p-6 animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
+              <div key={index} className="card p-6 animate-fade-in-up">
                 <div className="flex items-center mb-4">
-                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center mr-4">
+                  <div className="w-10 h-10 bg-apple-gray-900 rounded-lg flex items-center justify-center mr-4">
                     <category.icon className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold">{category.name}</h3>
+                  <h3 className="text-xl font-semibold text-apple-gray-900">{category.name}</h3>
                 </div>
                 <div className="space-y-4">
                   {category.tools.map((tool, i) => (
-                    <div key={i} className="border-l-2 border-gray-200 pl-4">
+                    <div key={i} className="border-l-2 border-apple-gray-200 pl-4">
                       <div className="flex justify-between items-start">
                         <div>
-                          <h4 className="font-medium text-gray-900">{tool.name}</h4>
-                          <p className="text-sm text-gray-600">{tool.purpose}</p>
+                          <h4 className="font-medium text-apple-gray-900">{tool.name}</h4>
+                          <p className="text-sm text-apple-gray-600">{tool.purpose}</p>
                         </div>
-                        <span className="text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded-full">
+                        <span className="text-xs px-2 py-1 bg-apple-gray-100 text-apple-gray-800 rounded-full">
                           {tool.vendor}
                         </span>
                       </div>
@@ -132,59 +125,35 @@ const EDAToolsGuide: React.FC = () => {
       </section>
 
       {/* Learning Path */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-apple bg-apple-gray-50">
+        <div className="container-tesla">
           <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="text-4xl font-bold mb-6">EDA Learning Path</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="apple-headline text-apple-gray-900 mb-4">EDA Learning Path</h2>
+            <p className="apple-subtitle text-apple-gray-600 max-w-3xl mx-auto">
               Structured approach to mastering semiconductor design tools
             </p>
           </div>
 
           <div className="relative">
-            <div className="hidden lg:block absolute left-1/2 top-0 h-full w-1 bg-gradient-to-b from-blue-500 to-purple-500"></div>
-            
+            <div className="hidden lg:block absolute left-1/2 top-0 h-full w-0.5 bg-apple-gray-200"></div>
             {[
-              {
-                title: "Beginner",
-                description: "Learn the fundamentals of RTL design and simulation",
-                tools: ["ModelSim", "Verilator", "Yosys"],
-                icon: Code
-              },
-              {
-                title: "Intermediate",
-                description: "Master synthesis and basic place & route",
-                tools: ["Design Compiler", "Genus", "OpenROAD"],
-                icon: Layers
-              },
-              {
-                title: "Advanced",
-                description: "Complete RTL-to-GDSII flow and sign-off",
-                tools: ["Innovus", "PrimeTime", "Calibre"],
-                icon: GitBranch
-              },
-              {
-                title: "Expert",
-                description: "Specialize in analog/mixed-signal or advanced nodes",
-                tools: ["Virtuoso", "HSPICE", "IC Validator"],
-                icon: Settings2
-              }
+              { title: "Beginner", description: "Learn the fundamentals of RTL design and simulation", tools: ["ModelSim", "Verilator", "Yosys"], icon: Code },
+              { title: "Intermediate", description: "Master synthesis and basic place & route", tools: ["Design Compiler", "Genus", "OpenROAD"], icon: Layers },
+              { title: "Advanced", description: "Complete RTL-to-GDSII flow and sign-off", tools: ["Innovus", "PrimeTime", "Calibre"], icon: GitBranch },
+              { title: "Expert", description: "Specialize in analog/mixed-signal or advanced nodes", tools: ["Virtuoso", "HSPICE", "IC Validator"], icon: Settings2 }
             ].map((step, index) => (
-              <div
-                key={index}
-                className={`relative mb-12 lg:w-1/2 ${index % 2 === 0 ? 'lg:mr-auto lg:pr-8' : 'lg:ml-auto lg:pl-8'}`}
-              >
+              <div key={index} className={`relative mb-12 lg:w-1/2 ${index % 2 === 0 ? 'lg:mr-auto lg:pr-8' : 'lg:ml-auto lg:pl-8'}`}>
                 <div className="card p-6 animate-fade-in-up">
                   <div className="flex items-center mb-4">
-                    <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center mr-4">
-                      <step.icon className="w-5 h-5 text-white" />
+                    <div className="w-10 h-10 bg-apple-gray-900 rounded-lg flex items-center justify-center mr-4">
+                      {React.createElement(step.icon, { className: 'w-5 h-5 text-white' })}
                     </div>
-                    <h3 className="text-xl font-semibold">{step.title}</h3>
+                    <h3 className="text-xl font-semibold text-apple-gray-900">{step.title}</h3>
                   </div>
-                  <p className="text-gray-600 mb-4">{step.description}</p>
+                  <p className="text-apple-gray-600 mb-4">{step.description}</p>
                   <div className="flex flex-wrap gap-2">
-                    {step.tools.map((tool, i) => (
-                      <span key={i} className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
+                    {step.tools.map((tool: string, i: number) => (
+                      <span key={i} className="px-3 py-1 bg-apple-gray-100 text-apple-gray-800 rounded-full text-sm">
                         {tool}
                       </span>
                     ))}
@@ -197,18 +166,18 @@ const EDAToolsGuide: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-20 bg-apple-gray-900 text-white">
+        <div className="container-tesla text-center">
           <div className="animate-fade-in-up">
-            <h2 className="text-4xl font-bold mb-6">Ready to Master EDA Tools?</h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            <h2 className="apple-headline mb-6">Ready to Master EDA Tools?</h2>
+            <p className="apple-subtitle text-apple-gray-300 mb-8 max-w-2xl mx-auto">
               Start your journey to becoming a semiconductor design expert with our comprehensive tutorials.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/tutorials/vlsi/intro" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-xl font-semibold transition-colors duration-200">
+              <Link to="/tutorials/vlsi/intro" className="btn-apple-ghost bg-white text-apple-gray-900 hover:bg-apple-gray-100">
                 Begin Learning
               </Link>
-              <Link to="/contact" className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-xl font-semibold transition-colors duration-200">
+              <Link to="/contact" className="btn-apple text-white hover:bg-white hover:text-apple-gray-900">
                 Get Expert Advice
               </Link>
             </div>

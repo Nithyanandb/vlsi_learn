@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -9,8 +10,26 @@ import Tutorials from './pages/Tutorials';
 import Intro from './pages/tutorials/Intro.tsx';
 import DigitalLogic from './pages/tutorials/DigitalLogic.tsx';
 import ChipEdge from './pages/tutorials/ChipEdge.tsx';
+import LoadingSpinner from './components/LoadingSpinner';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Ensure content is fully loaded before removing loading state
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+      // Dispatch custom event to signal content is ready
+      window.dispatchEvent(new CustomEvent('contentReady'));
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
+
   return (
     <BrowserRouter>
       <Routes>
